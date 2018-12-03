@@ -70,7 +70,21 @@ function info(text) {
 function success(title, text) {
     swal(title, text, "success");
 }
-
+//sweet alert 成功框
+function successthen(title,text,url) {
+    swal({
+            title: title,
+            text: "",
+            type: "success",
+            showCancelButton: false,
+            confirmButtonColor: "#8CD4F5",
+            confirmButtonText: "确定",
+            closeOnConfirm: false
+        },
+        function(){
+            window.location.href = url;
+        });
+}
 //页面遮罩
 function waitMask() {
     $.blockUI({

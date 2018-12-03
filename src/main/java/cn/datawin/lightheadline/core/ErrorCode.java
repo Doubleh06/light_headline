@@ -13,6 +13,8 @@ public enum ErrorCode {
 
     CANNOT_UPLOAD(3, "无法上传"),
 
+    FAIL_DELETE(5, "文件删除异常"),
+
     BAD_REQUEST(400, "请求有异常"),
 
     UNAUTHORIZED(401, "未认证"),

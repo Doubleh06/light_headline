@@ -1,5 +1,8 @@
 package cn.datawin.lightheadline.entity;
 
+import jdk.nashorn.internal.ir.annotations.Ignore;
+import lombok.Data;
+
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,78 +15,33 @@ import java.util.Date;
  * @author fonlin
  * @date 2018/4/19
  */
+@Data
 public class BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    /**
-     * 这个字段不允许更新
-     */
-    @Column(updatable = false)
-    private Date createDate;
+//    /**
+//     * 这个字段不允许更新
+//     */
+//    @Column(updatable = false)
+//    private Date createDate;
+//
+//    private Date updateDate;
+//
+//    /**
+//     * 这个字段不允许更新
+//     */
+//    @Column(updatable = false)
+//    private Integer createBy;
+//
+//    private Integer updateBy;
+//
+//    /**
+//     * 是否删除，默认没有删除
+//     */
+//    private Boolean deleted = false;
 
-    private Date updateDate;
 
-    /**
-     * 这个字段不允许更新
-     */
-    @Column(updatable = false)
-    private Integer createBy;
-
-    private Integer updateBy;
-
-    /**
-     * 是否删除，默认没有删除
-     */
-    private Boolean deleted = false;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Date getCreateDate() {
-        return createDate;
-    }
-
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
-    }
-
-    public Date getUpdateDate() {
-        return updateDate;
-    }
-
-    public void setUpdateDate(Date updateDate) {
-        this.updateDate = updateDate;
-    }
-
-    public Integer getCreateBy() {
-        return createBy;
-    }
-
-    public void setCreateBy(Integer createBy) {
-        this.createBy = createBy;
-    }
-
-    public Integer getUpdateBy() {
-        return updateBy;
-    }
-
-    public void setUpdateBy(Integer updateBy) {
-        this.updateBy = updateBy;
-    }
-
-    public Boolean getDeleted() {
-        return deleted;
-    }
-
-    public void setDeleted(Boolean deleted) {
-        this.deleted = deleted;
-    }
 }

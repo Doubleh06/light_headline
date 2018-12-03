@@ -47,7 +47,6 @@ public class RoleService extends AbstractService<Role> {
         RoleJqGridParam roleJqGridParam = (RoleJqGridParam) param;
         StringBuilder sql = new StringBuilder();
         sql.append("1=1 ");
-        sql.append("and deleted = 0 ");
         if (StringUtils.isNotEmpty(roleJqGridParam.getName())) {
             sql.append("and name like '%").append(roleJqGridParam.getName()).append("%' ");
         }

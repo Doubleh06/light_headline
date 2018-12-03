@@ -1,11 +1,14 @@
 package cn.datawin.lightheadline.entity;
 
+import lombok.Data;
+
 /**
  * 用户角色关联表
  *
  * @author fonlin
  * @date 2018/4/20
  */
+@Data
 public class UserRole {
 
     private Integer id;
@@ -13,28 +16,4 @@ public class UserRole {
     private Integer userId;
 
     private Integer roleId;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
-
-    public Integer getRoleId() {
-        return roleId;
-    }
-
-    public void setRoleId(Integer roleId) {
-        this.roleId = roleId;
-    }
 }

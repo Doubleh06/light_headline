@@ -22,10 +22,10 @@ public interface RoleDao extends BaseDao<Role> {
     @Select("SELECT * FROM role WHERE id IN (SELECT role_id FROM user_role WHERE user_id = #{userId})")
     List<Role> selectAllByUser(@Param("userId") Integer userId);
 
-    @Select("SELECT * FROM role WHERE id IN (SELECT role_id FROM user_role WHERE user_id = #{userId}) and enabled = 1 and deleted = 0 ")
+    @Select("SELECT * FROM role WHERE id IN (SELECT role_id FROM user_role WHERE user_id = #{userId}) and enabled = 1  ")
     List<Role> selectRoleByUser(@Param("userId") Integer userId);
 
 //    @Select("SELECT * FROM role WHERE id IN (SELECT role_id FROM user_role WHERE user_id = #{userId}) and enabled = 1 and deleted = 0 ")
-    @Select("select * from role where id in (select role_id from user_role where user_id = ${id} ) and enabled = 1 and deleted='0'")
+    @Select("select * from role where id in (select role_id from user_role where user_id = ${id} ) and enabled = 1 ")
     Role getRoleById(@Param("id") Integer id);
 }

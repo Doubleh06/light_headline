@@ -1,12 +1,15 @@
 package cn.datawin.lightheadline.entity;
 
 
+import lombok.Data;
+
 /**
  * 角色
  *
  * @author fonlin
  * @date 2018/4/20
  */
+@Data
 public class Role extends BaseEntity {
 
     /**
@@ -30,39 +33,6 @@ public class Role extends BaseEntity {
      */
     private String description;
 
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getRoleKey() {
-        return roleKey;
-    }
-
-    public void setRoleKey(String roleKey) {
-        this.roleKey = roleKey;
-    }
-
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Boolean getEnabled() {
-        return enabled;
-    }
-
-    public void setEnabled(Boolean enabled) {
-        this.enabled = enabled;
-    }
 
     @Override
     public boolean equals(Object o) {

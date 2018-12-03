@@ -19,13 +19,13 @@ public interface MenuDao extends BaseDao<Menu> {
     @Select("SELECT m.* FROM menu m " +
             "INNER JOIN role_menu rm on rm.menu_id = m.id " +
             "INNER JOIN user_role ur on ur.role_id = rm.role_id " +
-            "WHERE ur.user_id = #{userId} AND m.deleted = 0")
+            "WHERE ur.user_id = #{userId} ")
     List<Menu> selectAllByUser(@Param("userId") Integer userId);
 
     @Select("SELECT m.* FROM menu m " +
             "INNER JOIN role_menu rm on rm.menu_id = m.id " +
             "INNER JOIN user_role ur on ur.role_id = rm.role_id " +
-            "WHERE ur.user_id = #{userId} AND m.deleted = 0 AND m.enabled = 1")
+            "WHERE ur.user_id = #{userId}  AND m.enabled = 1")
     List<Menu> selectAllEnabledByUser(@Param("userId") Integer userId);
 
     @Select("SELECT * FROM menu m INNER JOIN role_menu rm ON m.id = rm.menu_id WHERE rm.role_id = #{roleId}")

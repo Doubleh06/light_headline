@@ -58,7 +58,6 @@ public class UserService extends AbstractService<User> {
         UserJqGridParam userJqGridParam = (UserJqGridParam) param;
         StringBuilder sql = new StringBuilder();
         sql.append("1=1 ");
-        sql.append("and deleted = 0 ");
         if (StringUtils.isNotEmpty(userJqGridParam.getUsername())) {
             sql.append("and username like '%").append(userJqGridParam.getUsername()).append("%' ");
         }
@@ -81,7 +80,6 @@ public class UserService extends AbstractService<User> {
         UserJqGridParam userJqGridParam = (UserJqGridParam) param;
         StringBuilder sql = new StringBuilder();
         sql.append("1=1 ");
-        sql.append("and deleted = 0 ");
         if (StringUtils.isNotEmpty(userJqGridParam.getUsername())) {
             sql.append("and username like '%").append(userJqGridParam.getUsername()).append("%' ");
         }

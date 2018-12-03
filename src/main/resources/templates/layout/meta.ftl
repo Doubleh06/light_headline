@@ -1,7 +1,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>外呼管理系统</title>
+<title>故障保修系统</title>
 
 <!--common css-->
 <link href="/static/css/bootstrap.min.css" rel="stylesheet">

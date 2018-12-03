@@ -54,7 +54,7 @@ public abstract class AbstractService<T extends BaseEntity> {
     public List<T> selectAll() {
         Condition condition = new Condition(entityClass);
         Example.Criteria criteria = condition.createCriteria();
-        criteria.andEqualTo("deleted", false);
+//        criteria.andEqualTo("deleted", false);
         return getDao().selectByExample(condition);
     }
 
@@ -90,7 +90,7 @@ public abstract class AbstractService<T extends BaseEntity> {
         Example.Criteria criteria = condition.createCriteria();
         criteria.andEqualTo(fieldName, value);
         //排除已经逻辑删除的数据
-        criteria.andEqualTo("deleted", false);
+//        criteria.andEqualTo("deleted", false);
         return getDao().selectByExample(condition);
     }
 
@@ -156,7 +156,6 @@ public abstract class AbstractService<T extends BaseEntity> {
         try {
             T entity = entityClass.newInstance();
             entity.setId(id);
-            entity.setDeleted(true);
             updateSelective(entity);
         } catch (InstantiationException | IllegalAccessException e) {
             throw new BusinessException(ErrorCode.INTERNAL_SERVER_ERROR, "删除失败");
@@ -173,10 +172,10 @@ public abstract class AbstractService<T extends BaseEntity> {
      */
     protected void saveBasicInfo(T entity) {
         UserDetail userDetail = SpringSecurityUtil.getUser();
-        entity.setUpdateBy(userDetail.getId());
-        entity.setUpdateDate(new Date());
-        entity.setCreateBy(userDetail.getId());
-        entity.setCreateDate(new Date());
+//        entity.setUpdateBy(userDetail.getId());
+//        entity.setUpdateDate(new Date());
+//        entity.setCreateBy(userDetail.getId());
+//        entity.setCreateDate(new Date());
     }
 
 }

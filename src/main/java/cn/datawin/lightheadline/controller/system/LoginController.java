@@ -1,7 +1,10 @@
 package cn.datawin.lightheadline.controller.system;
 
 
+import cn.datawin.lightheadline.core.ErrorCode;
 import cn.datawin.lightheadline.core.Result;
+import cn.datawin.lightheadline.dto.UpdatePasswordDto;
+import cn.datawin.lightheadline.entity.User;
 import cn.datawin.lightheadline.service.UserService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -58,21 +61,21 @@ public class LoginController {
 
 
 
-//    @RequestMapping(value = "/updatePassword", method = RequestMethod.POST)
-//    @ResponseBody
-//    public Result updatePassword(@RequestBody UpdatePasswordDto dto) {
-//        if(!dto.getNewPassword().equals(dto.getRepeatNewPassword())){
-//            return new Result(405,"两次密码输入不一致");
-//        }
-//        User user = userService.select(dto.getUserId());
-//        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-//        if(!encoder.matches(dto.getOldPassword(),user.getPassword())){
-//            return new Result(406,"旧密码输入错误");
-//        }
-//        user.setPassword(encoder.encode(dto.getNewPassword()));
-//        userService.updateSelective(user);
-//        return new Result(ErrorCode.OK);
-//    }
+    @RequestMapping(value = "/updatePassword", method = RequestMethod.POST)
+    @ResponseBody
+    public Result updatePassword(@RequestBody UpdatePasswordDto dto) {
+        if(!dto.getNewPassword().equals(dto.getRepeatNewPassword())){
+            return new Result(405,"两次密码输入不一致");
+        }
+        User user = userService.select(dto.getUserId());
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        if(!encoder.matches(dto.getOldPassword(),user.getPassword())){
+            return new Result(406,"旧密码输入错误");
+        }
+        user.setPassword(encoder.encode(dto.getNewPassword()));
+        userService.updateSelective(user);
+        return new Result(ErrorCode.OK);
+    }
 //
 //    @RequestMapping(value = "/updateInitPassword", method = RequestMethod.POST)
 //    @ResponseBody
