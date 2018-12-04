@@ -12,8 +12,8 @@ public class DemandDto {
     private String memo;
     private String admissibilityDate;
     private String admissibilityTime;
-    private String faultCategory;
-    private String faultDetail;
+    private Integer faultCategory;
+    private Integer faultDetail;
     private String correspondingMode;
     private String emergencyDegree;
     private String contactPoints;

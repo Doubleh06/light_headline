@@ -22,4 +22,7 @@ public interface DemandDao extends BaseDao<Demand> {
     @Select("select * from demand where id = ${id}")
     Demand selectDemandById(@Param("id")Integer id);
 
+    @Select("select * from demand where real_end_time between '${startTime}' and '${endTime}'")
+    List<Demand> selectDemandByTime(@Param("startTime")String startTime,@Param("endTime")String endTime);
+
 }

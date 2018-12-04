@@ -19,7 +19,6 @@
 <script>
     $(function () {
         var permissions = '${permissions}';
-        console.log(permissions);
         window.localStorage.setItem("permissions", permissions);
     });
 </script>

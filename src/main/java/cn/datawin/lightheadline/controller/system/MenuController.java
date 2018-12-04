@@ -1,5 +1,6 @@
 package cn.datawin.lightheadline.controller.system;
 
+
 import cn.datawin.lightheadline.controller.BaseController;
 import cn.datawin.lightheadline.core.BusinessException;
 import cn.datawin.lightheadline.core.ErrorCode;
@@ -98,7 +99,7 @@ public class MenuController extends BaseController {
     @RequestMapping("/delete")
     @ResponseBody
     public Result delete(@RequestParam Integer id) {
-        menuService.deleteLogically(id);
+        menuService.deleteMenu(id);
         return OK;
     }
 }

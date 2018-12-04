@@ -1,5 +1,6 @@
 package cn.datawin.lightheadline.service;
 
+
 import cn.datawin.lightheadline.core.AbstractService;
 import cn.datawin.lightheadline.core.BaseDao;
 import cn.datawin.lightheadline.core.jqGrid.JqGridParam;
@@ -141,5 +142,14 @@ public class UserService extends AbstractService<User> {
 
     public User selectByUsername(String username) {
         return userDao.findOneByUsername(username);
+    }
+
+    public void deleteUser(Integer id) {
+        User user = new User();
+        user.setId(id);
+        userDao.delete(user);
+        UserRole userRole = new UserRole();
+        userRole.setUserId(id);
+        userRoleDao.delete(userRole);
     }
 }

@@ -1543,7 +1543,7 @@ a.list-group-item.active:focus {
 /* FLOT CHART  */
 .flot-chart {
   display: block;
-  height: 200px;
+  height: 100%;
 }
 .widget .flot-chart.dashboard-chart {
   display: block;
@@ -1560,9 +1560,9 @@ a.list-group-item.active:focus {
   height: 100%;
 }
 .flot-chart-pie-content {
-  width: 200px;
-  height: 200px;
-  margin: auto;
+  width: 450px;
+  height: 450px;
+  margin-left: 70%;
 }
 .jqstooltip {
   position: absolute;
@@ -8551,3 +8551,25 @@ body.md-skin {
     margin: 0;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

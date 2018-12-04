@@ -9,6 +9,7 @@ import cn.datawin.lightheadline.dao.RoleDao;
 import cn.datawin.lightheadline.dao.RoleMenuDao;
 import cn.datawin.lightheadline.dto.RoleJqGridParam;
 import cn.datawin.lightheadline.entity.Role;
+
 import cn.datawin.lightheadline.entity.RoleMenu;
 import cn.datawin.lightheadline.security.MySecurityMetadataSource;
 import cn.datawin.lightheadline.util.SpringContextUtil;
@@ -83,5 +84,14 @@ public class RoleService extends AbstractService<Role> {
 
     public List<Role> selectAllByUser(Integer userId) {
         return roleDao.selectAllByUser(userId);
+    }
+
+    public void deleteRole(Integer id) {
+        Role role = new Role();
+        role.setId(id);
+        roleDao.delete(role);
+        RoleMenu roleMenu = new RoleMenu();
+        roleMenu.setRoleId(id);
+        roleMenuDao.delete(roleMenu);
     }
 }

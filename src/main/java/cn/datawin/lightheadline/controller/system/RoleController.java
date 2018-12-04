@@ -1,13 +1,13 @@
 package cn.datawin.lightheadline.controller.system;
 
 
+
 import cn.datawin.lightheadline.controller.BaseController;
 import cn.datawin.lightheadline.core.BusinessException;
 import cn.datawin.lightheadline.core.ErrorCode;
 import cn.datawin.lightheadline.core.JSONResult;
 import cn.datawin.lightheadline.core.Result;
 import cn.datawin.lightheadline.core.jqGrid.JqGridResult;
-
 import cn.datawin.lightheadline.dto.DtoTransfer;
 import cn.datawin.lightheadline.dto.PermissionDto;
 import cn.datawin.lightheadline.dto.RoleDto;
@@ -78,7 +78,7 @@ public class RoleController extends BaseController {
     @RequestMapping("/delete")
     @ResponseBody
     public Result delete(@RequestParam Integer id) {
-        roleService.deleteLogically(id);
+        roleService.deleteRole(id);
         return OK;
     }
 

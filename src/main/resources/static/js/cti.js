@@ -147,6 +147,8 @@ function refreshPermission(domain) {
     }
 
     function hasAuth(resourceList, auth) {
+        // console.log("resourceList="+resourceList);
+        // console.log("auth="+auth);
         for (var i = 0; i < resourceList.length; i++) {
             var resource = resourceList[i];
             if (resource.code === auth) {

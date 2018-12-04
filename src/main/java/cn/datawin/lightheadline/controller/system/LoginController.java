@@ -76,25 +76,25 @@ public class LoginController {
         userService.updateSelective(user);
         return new Result(ErrorCode.OK);
     }
-//
-//    @RequestMapping(value = "/updateInitPassword", method = RequestMethod.POST)
-//    @ResponseBody
-//    public Result updateInitPassword(@RequestBody UpdatePasswordDto dto) {
-//        if(!dto.getNewPassword().equals(dto.getRepeatNewPassword())){
-//            return new Result(405,"两次密码输入不一致");
-//        }
-//        User user = userService.selectByUsername(dto.getUsername());
-//        if(user!=null){
-//            BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-//            if(!encoder.matches(dto.getOldPassword(),user.getPassword())){
-//                return new Result(406,"旧密码输入错误");
-//            }
-//            user.setPassword(encoder.encode(dto.getNewPassword()));
-//            userService.updateSelective(user);
-//            return new Result(ErrorCode.OK);
-//        }
-//        return new Result(407,"用户不存在");
-//    }
+
+    @RequestMapping(value = "/updateInitPassword", method = RequestMethod.POST)
+    @ResponseBody
+    public Result updateInitPassword(@RequestBody UpdatePasswordDto dto) {
+        if(!dto.getNewPassword().equals(dto.getRepeatNewPassword())){
+            return new Result(405,"两次密码输入不一致");
+        }
+        User user = userService.selectByUsername(dto.getUsername());
+        if(user!=null){
+            BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+            if(!encoder.matches(dto.getOldPassword(),user.getPassword())){
+                return new Result(406,"旧密码输入错误");
+            }
+            user.setPassword(encoder.encode(dto.getNewPassword()));
+            userService.updateSelective(user);
+            return new Result(ErrorCode.OK);
+        }
+        return new Result(407,"用户不存在");
+    }
 
     @RequestMapping(value = "/initPassword")
     public String initPassword() {

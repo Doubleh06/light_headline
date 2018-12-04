@@ -62,10 +62,10 @@
                                     </div>
                                     &nbsp&nbsp&nbsp
 
-                                    <button class="btn btn-success"  id="search" type="button" onclick="demandList.search()">搜索</button>&nbsp
-                                    <button class="btn btn-success" type="button" onclick="demandList.resetSearch()">重置</button>&nbsp
-                                    <button class="btn btn-primary" type="button" onclick="demandList.create()">新增</button>
-                                    <button class="btn btn-danger" type="button" onclick="demandList.export()">导出</button>
+                                    <button class="btn btn-success"  id="search" type="button" onclick="DemandList.search()">搜索</button>&nbsp
+                                    <button class="btn btn-success" type="button" onclick="DemandList.resetSearch()">重置</button>&nbsp
+                                    <button class="btn btn-primary" type="button" onclick="DemandList.create()">新增</button>
+                                    <button class="btn btn-danger" type="button" onclick="DemandList.export()">导出</button>
                                     <#--<button class="btn btn-primary" onclick="Qad.create()">新增</button>-->
 
                                 </div>

@@ -102,7 +102,7 @@
                             <div class="col-sm-4">
                                 <select class="form-control" name="faultCategory">
                                     <#list faultCategories as faultCategory>
-                                        <#if demandDto.faultCategory==faultCategory>
+                                        <#if demandDto.faultCategory==faultCategory.id>
                                             <option value="${faultCategory.id}" selected>${faultCategory.faultCategory}</option>
                                         <#else >
                                             <option value="${faultCategory.id}">${faultCategory.faultCategory}</option>
@@ -114,7 +114,7 @@
                             <div class="col-sm-4">
                                 <select class="form-control" name="faultDetail">
                                     <#list faultDetails as faultDetail>
-                                        <#if demandDto.faultDetail == faultDetail>
+                                        <#if demandDto.faultDetail == faultDetail.id>
                                             <option value="${faultDetail.id}" selected>${faultDetail.faultDetail}</option>
                                         <#else >
                                             <option value="${faultDetail.id}">${faultDetail.faultDetail}</option>

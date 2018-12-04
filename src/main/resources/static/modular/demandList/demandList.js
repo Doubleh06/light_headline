@@ -1,4 +1,4 @@
-var demandList = {
+var DemandList = {
     tableId: "#grid-table",
     pagerId: "#grid-pager",
     table: null,
@@ -8,7 +8,7 @@ var demandList = {
 /**
  * jqGrid初始化参数
  */
-demandList.initOptions = function () {
+DemandList.initOptions = function () {
     var options = {
         url : "/demandList/grid",
         autowidth:true,
@@ -48,12 +48,15 @@ demandList.initOptions = function () {
             {name: 'operations', index: 'operations', width: 100, sortable: false, formatter: function (cellValue, options, rowObject) {
                 var id = "'"+rowObject["id"]+"'";
                 var str = "";
-                str += '<input type="button" class=" btn btn-sm btn-info"  value="处  理" onclick="demandList.deal(' + id + ')"/>&nbsp;';
+                str += '<input type="button" class="control-auth btn btn-sm btn-info" data-auth="demandList_deal"  value="处  理" onclick="DemandList.deal(' + id + ')"/>&nbsp;';
                 // str += '<input type="button" class=" btn btn-sm btn-info"  value="编辑" onclick="demandList.edit(' + id + ')"/>&nbsp;';
                 // str += '<input type="button" class=" btn btn-sm btn-danger"  value="删除" onclick="demandList.delete(' + id + ')"/>';
                 return str;
             }}
-        ]
+        ],
+        gridComplete: function () {
+            refreshPermission(DemandList.domain);
+        }
     };
     return options;
 };
@@ -61,19 +64,19 @@ demandList.initOptions = function () {
 /**
  * 根据关键词搜索
  */
-demandList.search = function () {
+DemandList.search = function () {
     var searchParam = {};
     searchParam.name = $("#name").val();
     searchParam.emergencyDegree = $("#emergencyDegree").val();
     searchParam.status = $("#status").val();
     console.log(searchParam);
-    demandList.table.reload(searchParam);
+    DemandList.table.reload(searchParam);
 };
 
 /**
  * 重置搜索
  */
-demandList.resetSearch = function () {
+DemandList.resetSearch = function () {
     // $("#task").val("");
     // $("#deptmentId").html("请选择");
     // $("#userId").html("请选择");
@@ -84,27 +87,14 @@ demandList.resetSearch = function () {
 /**
  *新增
  */
-demandList.create = function () {
+DemandList.create = function () {
     window.location.href = "/createDemand/create";
 }
 /**
  * 导出
  */
-demandList.export = function () {
+DemandList.export = function () {
     window.location.href = "/demandList/export";
-
-    // $("#exportModal").modal();
-    // $.ajax({
-    //     type : 'POST',
-    //     url: '/demandList/export',
-    //     contentType : "application/json" ,
-    //     // data : JSON.stringify({
-    //     //     "keys" : keys
-    //     // }),
-    //     success : function(data) {
-    //          window.open("/leads/download?key="+data.obj);
-    //     }
-    // });
 }
 
 
@@ -114,7 +104,7 @@ demandList.export = function () {
  *
  * @param id    userId
  */
-demandList.delete = function del(id) {
+DemandList.delete = function del(id) {
     warning("确定删除吗", "", function () {
         $.get("/demandList/delete?id=" + id, function () {
             success("成功删除");
@@ -123,7 +113,7 @@ demandList.delete = function del(id) {
     })
 };
 
-demandList.deal = function (id) {
+DemandList.deal = function (id) {
     window.location.href = "/demandList/deal?id="+id;
 };
 
@@ -148,7 +138,7 @@ demandList.deal = function (id) {
 
 $(function() {
     $('.chosen-select').chosen({width: "100%"});
-    var jqGrid = new JqGrid("#grid-table", "#grid-pager", demandList.initOptions());
-    demandList.table = jqGrid.init();
+    var jqGrid = new JqGrid("#grid-table", "#grid-pager", DemandList.initOptions());
+    DemandList.table = jqGrid.init();
 
 });
